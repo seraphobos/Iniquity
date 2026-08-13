@@ -8,19 +8,30 @@
 
     <style>
         body {
-            margin: 0;
-            min-height: 100vh;
+			margin: 0;
+			min-height: 100vh;
 
-            background: #999999;
-            background: linear-gradient(
-                160deg,
-                rgba(153, 153, 153, 1) 0%,
-                rgba(0, 0, 0, 1) 20%
-            );
+			background: radial-gradient(
+				ellipse 100% 70% at 50% 0%,
+				#999999 0%,
+				#858585 10%,
+				#707070 20%,
+				#595959 32%,
+				#424242 45%,
+				#2c2c2c 58%,
+				#171717 72%,
+				#070707 85%,
+				#040404 90%,
+				#000000 100%
+			);
 
-            text-align: center;
-            color: white;
-        }
+			background-attachment: fixed;
+
+			color: white;
+			font-family: Arial, sans-serif;
+
+			text-align: center;
+		}
 
         h1 {
             font-size: 64px;
@@ -47,7 +58,7 @@
         .main-button {
             display: inline-block;
 
-            padding: 12px 28px;
+            padding: 12px 48px;
 
             background: rgba(30, 30, 30, 0.9);
             color: white;
@@ -99,7 +110,7 @@
             }
 
             .main-button {
-                padding: 10px 15px;
+                padding: 10px 20px;
                 font-size: 15px;
             }
 
