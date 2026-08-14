@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Iniquity — Сервер</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background: radial-gradient(
+                ellipse 100% 70% at 50% 0%,
+                #999999 0%,
+                #858585 10%,
+                #707070 20%,
+                #595959 32%,
+                #424242 45%,
+                #2c2c2c 58%,
+                #171717 72%,
+                #070707 85%,
+                #040404 90%,
+                #000000 100%
+            );
+
+            background-attachment: fixed;
+
+            color: white;
+            font-family: Arial, sans-serif;
+
+            text-align: center;
+        }
+
+        /* =========================
+           ЗАГОЛОВКИ
+           ========================= */
+
+        h1 {
+            font-size: 64px;
+            margin: 30px 0 10px;
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: normal;
+            margin: 0 0 30px;
+        }
+
+        /* =========================
+           КНОПКИ
+           ========================= */
+
+        .main-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+
+            margin: 20px 0 40px;
+        }
+
+        .main-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 180px;
+            height: 50px;
+
+            padding: 0;
+
+            background: rgba(45, 45, 45, 0.8);
+            color: white;
+
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+
+            text-decoration: none;
+            font-size: 18px;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s,
+                transform 0.2s,
+                border-color 0.2s;
+        }
+
+        .main-button:hover {
+            background: rgba(70, 70, 70, 0.95);
+            border-color: rgba(255, 255, 255, 0.7);
+
+            transform: translateY(-2px);
+        }
+
+        .main-button:active {
+            transform: translateY(0);
+        }
+
+        /* =========================
+           ИНФОРМАЦИЯ О СЕРВЕРЕ
+           ========================= */
+
+        .server-info {
+            width: 700px;
+            max-width: calc(100% - 30px);
+
+            margin: 30px auto;
+
+            padding: 30px;
+
+            background: rgba(30, 30, 30, 0.75);
+
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 12px;
+        }
+
+        .server-info h3 {
+            margin: 0 0 25px;
+
+            font-size: 28px;
+            font-weight: normal;
+        }
+
+        .server-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 15px 5px;
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+            font-size: 18px;
+        }
+
+        .server-row:last-child {
+            border-bottom: none;
+        }
+
+        .server-value {
+            color: #cccccc;
+        }
+
+        /* =========================
+           IP СЕРВЕРА
+           ========================= */
+
+        .server-ip {
+            margin: 25px auto 0;
+
+            padding: 15px;
+
+            background: rgba(0, 0, 0, 0.35);
+
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 8px;
+
+            font-size: 20px;
+        }
+
+        .server-ip span {
+            color: #ffffff;
+        }
+
+        /* =========================
+           НАЗАД
+           ========================= */
+
+        .back-button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            width: 180px;
+            height: 45px;
+
+            margin: 10px auto 40px;
+
+            background: rgba(45, 45, 45, 0.8);
+            color: white;
+
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+
+            text-decoration: none;
+            font-size: 16px;
+
+            transition:
+                background 0.2s,
+                transform 0.2s,
+                border-color 0.2s;
+        }
+
+        .back-button:hover {
+            background: rgba(70, 70, 70, 0.95);
+            border-color: rgba(255, 255, 255, 0.7);
+
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           МОБИЛЬНАЯ ВЕРСИЯ
+           ========================= */
+
+        @media (max-width: 760px) {
+
+            h1 {
+                font-size: 48px;
+            }
+
+            h2 {
+                font-size: 26px;
+            }
+
+            .main-buttons {
+                gap: 8px;
+
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .main-button {
+                width: 30%;
+                height: 45px;
+
+                font-size: 15px;
+            }
+
+            .server-info {
+                padding: 20px;
+
+                max-width: calc(100% - 30px);
+            }
+
+            .server-info h3 {
+                font-size: 24px;
+            }
+
+            .server-row {
+                font-size: 16px;
+            }
+
+            .server-ip {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Iniquity</h1>
+
+    <h2>Сервер Minecraft</h2>
+
+
+    <div class="main-buttons">
+
+        <a href="index.html" class="main-button">
+            Главная
+        </a>
+
+        <a href="wiki.html" class="main-button">
+            Вики
+        </a>
+
+        <a href="support.html" class="main-button">
+            Поддержать
+        </a>
+
+    </div>
+
+    <div class="server-info">
+
+        <h3>Информация о сервере</h3>
+
+        <div class="server-row">
+            <span>Версия</span>
+            <span class="server-value">1.21.1</span>
+        </div>
+
+        <div class="server-row">
+            <span>Ядро</span>
+            <span class="server-value">Purpur</span>
+        </div>
+
+        <div class="server-row">
+            <span>Режим</span>
+            <span class="server-value">Survival</span>
+        </div>
+
+        <div class="server-row">
+            <span>Сложность</span>
+            <span class="server-value">Hard</span>
+        </div>
+
+        <div class="server-row">
+            <span>Онлайн</span>
+            <span class="server-value">0 / 100</span>
+        </div>
+
+
+        <div class="server-ip">
+            IP сервера:
+            <span>play.iniquity.ru</span>
+        </div>
+
+    </div>
+
+    <a href="index.html" class="back-button">
+        ← На главную
+    </a>
+
+</body>
+</html>
